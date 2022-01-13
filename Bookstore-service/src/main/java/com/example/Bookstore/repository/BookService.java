@@ -61,7 +61,6 @@ public class BookService {
 
     public int removeBook(int id) {
         bookRepository.deleteById(id);
-
         return id;
     }
 }
