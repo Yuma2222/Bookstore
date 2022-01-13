@@ -25,7 +25,7 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
     }
 
-    @GetMapping("Customers")
+    @GetMapping("Customer/Customers")
     public ResponseEntity<List<Customer>> getCustomers(){
         return new ResponseEntity<>(customerService.getCustomers(), HttpStatus.OK);
     }

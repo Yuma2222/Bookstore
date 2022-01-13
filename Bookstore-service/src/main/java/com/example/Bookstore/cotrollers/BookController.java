@@ -36,17 +36,17 @@ public class BookController {
         return new ResponseEntity<>(bookService.findBooksByFilter(filters), HttpStatus.OK);
     }
 
-    @PostMapping("/Books/add")
+    @PostMapping("/withPermission/Books/add")
     public ResponseEntity<Integer> addBook(@RequestBody Book book){
         return new ResponseEntity<>(bookService.addBook(book), HttpStatus.OK);
     }
 
-    @PutMapping("/Books/update")
+    @PutMapping("/withPermission/Books/update")
     public ResponseEntity<Integer> updateBook(@RequestBody Book book){
         return new ResponseEntity<>(bookService.updateBook(book), HttpStatus.OK);
     }
 
-    @DeleteMapping("/Books/delete/{id}")
+    @DeleteMapping("/withPermission/Books/delete/{id}")
     public ResponseEntity<Integer> removeBookById(@PathVariable int id){
         return new ResponseEntity<>(bookService.removeBook(id), HttpStatus.OK);
     }
