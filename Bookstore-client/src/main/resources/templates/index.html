@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+
+<table>
+    <tbody>
+    <tr th:each="book: ${books}">
+        <td th:text="${book.ISBN}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.genre}"></td>
+        <td th:text="${book.description}"></td>
+        <td th:text="${book.publisher}"></td>
+        <td th:text="${book.numberOfPages}"></td>
+        <td th:text="${book.releaseLanguage}"></td>
+        <td th:text="${book.releaseNumber}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
