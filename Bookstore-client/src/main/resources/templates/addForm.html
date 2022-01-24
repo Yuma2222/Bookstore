@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+<form method="post" th:action="@{/books/add}" th:object="${book}">
+    <table>
+        <tr>
+            <td>
+                <label>Author: <input type="text" th:field="${book.author}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Title: <input type="text" th:field="${book.title}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Genre: <input type="text" th:field="${book.genre}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Description: <input type="text" th:field="${book.description}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Publisher: <input type="text" th:field="${book.publisher}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>ISBN: <input type="text" th:field="${book.ISBN}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Release Language: <input type="text" th:field="${book.releaseLanguage}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Number Of Pages: <input type="number" th:field="${book.numberOfPages}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Release Number: <input type="number" th:field="${book.releaseNumber}"/></label>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

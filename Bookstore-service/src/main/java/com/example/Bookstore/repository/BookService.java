@@ -30,7 +30,17 @@ public class BookService {
     }
 
     public List<Book> findBooksByFilter(Map<String, String> filters) {
-        //Need to ask about better solution.
+    /*    List<Book> all = bookRepository.findAll();
+
+        List<Predicate<Book>> allPredicates = Arrays.asList(
+                w -> w.getAuthor().equals(filters.get("author")),
+                w -> w.getGenre().equals(filters.get("genre")),
+                w -> w.getPublisher().equals(filters.get("publisher")));
+
+        Predicate<Book> compositePredicate = allPredicates.stream().reduce(w -> true, Predicate::and);
+
+        all.stream().filter(compositePredicate).forEach(System.out::println);*/
+
         return bookRepository.findAll()
                 .stream()
                 .filter(book -> book.getAuthor() != null && book.getAuthor().equals(filters.get("author")))
@@ -43,20 +53,8 @@ public class BookService {
         return bookRepository.save(book).getId();
     }
 
-    public int updateBook(Book book){
-        //Need to ask about better solution.
-        Book bookToUpdate = bookRepository.getById(book.getId());
-        bookToUpdate.setNumberOfPages(book.getNumberOfPages());
-        bookToUpdate.setReleaseDate(book.getReleaseDate());
-        bookToUpdate.setReleaseLanguage(book.getReleaseLanguage());
-        bookToUpdate.setAuthor(book.getAuthor());
-        bookToUpdate.setTitle(book.getTitle());
-        bookToUpdate.setGenre(book.getGenre());
-        bookToUpdate.setDescription(book.getDescription());
-        bookToUpdate.setPublisher(book.getPublisher());
-        bookToUpdate.setISBN(book.getISBN());
-
-        return bookRepository.save(bookToUpdate).getId();
+    public int updateBook(Book book) {
+        return bookRepository.save(book).getId();
     }
 
     public int removeBook(int id) {

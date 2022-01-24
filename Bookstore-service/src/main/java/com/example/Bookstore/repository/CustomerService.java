@@ -37,12 +37,6 @@ public class CustomerService {
     }
 
     public int updateCustomer(Customer customer) {
-        Customer repoCustomer = customerRepository.getById(customer.getId());
-        repoCustomer.setAge(customer.getAge());
-        repoCustomer.setBookList(customer.getBookList());
-        repoCustomer.setEMail(customer.getEMail());
-        repoCustomer.setName(customer.getName());
-        repoCustomer.setSurname(customer.getSurname());
         return customerRepository.save(customer).getId();
     }
 
