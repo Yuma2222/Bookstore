@@ -21,6 +21,10 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/reload")
+    public ResponseEntity<String> reloadWithGoogleApi(){
+        return new ResponseEntity<>(bookService.reloadBookFromGoogleApi(), HttpStatus.OK);
+    }
 
     @GetMapping("/display")
     public ResponseEntity<List<Book>> showBooks(){
